@@ -1,7 +1,7 @@
 import React,{ useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CartData } from '../Context/CartContext';
-import CloseIcon from '../assets/close.png'
+import { RxCross1 } from "react-icons/rx";
 
 const CartCard = ({product}) => {
     const { setCartOpen,cartOpen,RemoveProductFromCart } = useContext(CartData);
@@ -19,7 +19,7 @@ const CartCard = ({product}) => {
         className='w-37.5 shadow-lg bg-white rounded-2xl'/>
 
         <div className='flex flex-col text-2xl font-bold ites-center'>
-            <h2 className='sm:text-center lg:text-start'>{product.title}</h2>
+            <h2 className='text-center lg:text-start'>{product.title}</h2>
             <h3 className='sm:font-bold text-gray-500 text-sm text-center
             md:text-start'>
                         {product.brand}
@@ -42,11 +42,8 @@ const CartCard = ({product}) => {
 
             </div>
         </div>
-        <img 
-        src={CloseIcon} 
-        alt="close"
-        className='sm: block 
-        lg:hidden lg:group-hover:block ml-auto mr-4'
+        <RxCross1
+        className='h-5 w-5 invisible lg:group-hover:visible ml-auto mr-4'
         onClick={(e)=>{
             e.stopPropagation();
             setCartOpen(true);

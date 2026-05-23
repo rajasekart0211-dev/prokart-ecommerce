@@ -6,7 +6,7 @@ const Loading = () => {
 
       <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
 
-      <h1 className="mt-6 text-xl font-semibold text-gray-700">
+      <h1 className="mt-6 text-xl font-semibold text-gray-700 animate-pulse">
         Loading...
       </h1>
 

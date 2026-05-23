@@ -7,7 +7,7 @@ const Card = ({ product }) => {
 
   return (
     <div key={product.id} className='group w-72 rounded-xl border border-gray-200 bg-white p-4 shadow-xl
-    hover:scale-[1.01] hover:-translate-y-1.5 transition duration-100 '
+    hover:scale-[1.01] hover:-translate-y-1.5 transition duration-100 active:bg-black/40 '
      onClick={()=>{navigate(`/product/${product.id}`)}}>
       
       <img
@@ -17,7 +17,7 @@ const Card = ({ product }) => {
         duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl'
       />
 
-      <div className='mt-4'>
+      <div className='mt-4  '>
         <h2 className='text-lg font-semibold'>
           {product.title}
         </h2>

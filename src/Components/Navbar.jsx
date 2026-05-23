@@ -4,6 +4,7 @@ import { CartData } from '../Context/CartContext';
 import { Products } from '../Context/Productsdata';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { IoIosSearch, IoMdCloseCircle } from "react-icons/io";
+import { CiMenuBurger } from "react-icons/ci";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -32,7 +33,10 @@ const Navbar = () => {
 
         <h1
           className='font-bold tracking-widest text-gray-700 text-2xl cursor-pointer'
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/')
+            window.scrollTo(0,0);
+          }}
         >
           Prokart
         </h1>
@@ -64,7 +68,9 @@ const Navbar = () => {
 
         <Link
           to="/login"
-          className='hover:scale-105 text-white transition duration-75 bg-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-blue-800'
+          className='md:hover:scale-105 text-white transition duration-75 bg-blue-700 px-4 py-2 rounded-lg font-semibold
+           hover:bg-blue-800 hidden
+           sm:block'
           onClick={() => {
             setCartOpen(false);
             window.scrollTo(0, 0);
@@ -72,11 +78,14 @@ const Navbar = () => {
         >
           Login
         </Link>
-
+          <CiMenuBurger
+          className='lg:w-5 h-5 block
+          sm:hidden'
+          />
       </nav>
 
       <div
-        className={`w-3/4 h-8/10 bg-black/20 fixed left-1/2 -translate-x-1/2
+        className={`w-3/4 h-8/10 bg-black/20 fixed z-50 left-1/2 -translate-x-1/2
         ${searchOpen ? 'block' : 'hidden'}
         backdrop-blur-md shadow-md overflow-y-scroll p-6 flex flex-col gap-4`}
       >
@@ -88,7 +97,8 @@ const Navbar = () => {
             <div
               key={product.id}
               className='flex items-center gap-4 bg-gray-200 p-3 rounded-md cursor-pointer h-30 
-              shadow-md'
+              shadow-md hover:bg-gray-300 hover:scale-101 transition-all duration-150
+              active:bg-gray-500'
               onClick={() =>{
                 navigate(`/product/${product.id}`);
                 setSearchOpen(false);
