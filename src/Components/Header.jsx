@@ -1,6 +1,3 @@
-import React from 'react';
-import Productdisplay from './Productdisplay';
-
 const Header = () => {
 
     const scrollToProducts = () => {
